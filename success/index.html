@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para a Mulher que Ilumina Minha Vida</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ffebee 0%, #fce4ec 100%);
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+        }
+
+        .main-container {
+            display: flex;
+            width: 100%;
+            max-width: 1400px;
+            position: relative;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .side-gallery {
+            width: 250px;
+            position: sticky;
+            top: 20px;
+            height: calc(100vh - 40px);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            overflow-y: auto;
+            padding: 10px;
+        }
+
+        .side-gallery::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .side-gallery::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+        }
+
+        .side-gallery::-webkit-scrollbar-thumb {
+            background: rgba(233, 30, 99, 0.5);
+            border-radius: 4px;
+        }
+
+        .content {
+            flex: 1;
+            max-width: 800px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #FFDABB;
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .letter {
+            white-space: pre-line;
+            text-align: justify;
+            padding: 1rem;
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        .photo-item {
+            aspect-ratio: 1;
+            background: #fff;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            transform: rotate(var(--rotation));
+        }
+
+        .photo-item:hover {
+            transform: scale(1.05) rotate(0deg);
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 1200px) {
+            .main-container {
+                flex-direction: column;
+            }
+
+            .side-gallery {
+                position: relative;
+                width: 100%;
+                height: auto;
+                flex-direction: row;
+                overflow-x: auto;
+                overflow-y: hidden;
+                padding: 20px 0;
+            }
+
+            .photo-item {
+                min-width: 200px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .content {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .letter {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div id="leftGallery" class="side-gallery">
+            <!-- Fotos da esquerda serão inseridas aqui -->
+        </div>
+        
+        <div class="content">
+            <h1>Para a Mulher que Ilumina Minha Vida</h1>
+            
+            <div class="letter">
+Querida Luna,
+
+Não consigo começar esta mensagem sem que meu coração acelere ao lembrar de você. Cada dia longe de você tem sido como um céu sem estrelas—vazio, escuro e sem brilho. Você é a luz que guia meus passos, a calma na minha tempestade, e a razão pela qual meu sorriso ainda existe, mesmo quando tento disfarçar a saudade.
+
+Reconheço que errei, e não há justificativa que apague a dor que posso ter causado. Mas saiba que nenhum momento de distância diminuiu o que sinto por você. Pelo contrário, só me fez perceber o quanto você é essencial para mim. Seu amor, seu jeito único de me entender, até mesmo suas reclamações—tudo faz falta.
+
+Eu me arrependo de cada palavra ou atitude que te magoou, e prometo, de coração aberto, fazer melhor. Você é a mulher que me faz acreditar no amor todos os dias, e não quero perder a chance de construir um futuro ao seu lado.
+
+Me dá a oportunidade de provar que posso ser o homem que você merece. Deixa eu reconquistar seu sorriso, seu abraço, sua confiança. Eu te amo com uma intensidade que não cabe em palavras, e se houver uma pequena chance de recomeçarmos, eu vou lutar por ela—porque você é o meu grande amor.</div>
+        </div>
+
+        <div id="rightGallery" class="side-gallery">
+            <!-- Fotos da direita serão inseridas aqui -->
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
