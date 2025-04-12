@@ -28,7 +28,7 @@ const imageExtensions = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
 function tryLoadImage(index, currentExtensionIndex = 0) {
     return new Promise((resolve) => {
         if (currentExtensionIndex >= imageExtensions.length) {
-            resolve('https://via.placeholder.com/300x400?text=Adicione+sua+foto+aqui');
+            resolve(null); // Retorna null se nenhuma imagem for encontrada
             return;
         }
 
@@ -53,10 +53,14 @@ async function createPhotoElement(index) {
     img.alt = 'Nosso momento especial';
     
     // Tenta carregar a imagem com diferentes extensões
-    img.src = await tryLoadImage(index);
+    const imgSrc = await tryLoadImage(index);
     
-    photoDiv.appendChild(img);
-    return photoDiv;
+    if (imgSrc) {
+        img.src = imgSrc;
+        photoDiv.appendChild(img);
+        return photoDiv;
+    }
+    return null; // Retorna null se nenhuma imagem for encontrada
 }
 
 // Função para carregar as fotos
@@ -65,17 +69,19 @@ async function loadPhotos() {
     const rightGallery = document.getElementById('rightGallery');
     
     // Total de fotos a serem carregadas
-    const totalPhotos = 6;
+    const totalPhotos = 10; // Aumentado para 10 fotos
     
     // Distribuir as fotos entre as galerias
     for (let i = 1; i <= totalPhotos; i++) {
         const photoElement = await createPhotoElement(i);
         
-        // Fotos ímpares vão para a esquerda, pares para a direita
-        if (i % 2 === 1) {
-            leftGallery.appendChild(photoElement);
-        } else {
-            rightGallery.appendChild(photoElement);
+        if (photoElement) { // Só adiciona se a foto existir
+            // Fotos ímpares vão para a esquerda, pares para a direita
+            if (i % 2 === 1) {
+                leftGallery.appendChild(photoElement);
+            } else {
+                rightGallery.appendChild(photoElement);
+            }
         }
     }
 }
@@ -86,8 +92,10 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Inicia a música
     const bgMusic = document.getElementById('bgMusic');
-    bgMusic.volume = 0.5; // Define o volume para 50%
-    bgMusic.play().catch(error => {
-        console.log('Erro ao tocar música:', error);
-    });
+    if (bgMusic) {
+        bgMusic.volume = 0.5; // Define o volume para 50%
+        bgMusic.play().catch(error => {
+            console.log('Erro ao tocar música:', error);
+        });
+    }
 }); 
