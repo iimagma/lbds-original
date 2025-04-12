@@ -1,0 +1,5 @@
+build:
+  command: ""
+  output: "."
+  environment:
+    NODE_VERSION: "16" 
